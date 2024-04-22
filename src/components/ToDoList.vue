@@ -40,7 +40,7 @@
                 <button @click="editTask(index)" class="edit-btn"><i class="fas fa-edit"></i></button>
                 <button @click="deleteTask(index)" class="delete-btn"><i class="fas fa-trash-alt"></i></button>
               </div>
-              <div v-else>
+              <div v-else style="display: inline-block; white-space: nowrap;">
                 <button @click="saveEditedTask(index)" class="save-btn">Save</button>
                 <button @click="cancelEdit(index)" class="cancel-btn">Cancel</button>
               </div>
@@ -70,6 +70,9 @@ const tasks = ref([
 // New task input
 const newTask = ref('');
 
+// Original task data for editing
+const originalTasks = ref([]);
+
 // Method to add a new task
 const addTask = () => {
   if (newTask.value.trim() !== '') {
@@ -85,6 +88,8 @@ const toggleTaskStatus = (index) => {
 
 // Method to edit a task
 const editTask = (index) => {
+  // Save a copy of the original task data
+  originalTasks.value[index] = { ...tasks.value[index] };
   tasks.value[index].editing = true;
 };
 
@@ -95,6 +100,8 @@ const saveEditedTask = (index) => {
 
 // Method to cancel editing task
 const cancelEdit = (index) => {
+  // Restore the original task data
+  tasks.value[index] = { ...originalTasks.value[index] };
   tasks.value[index].editing = false;
 };
 
