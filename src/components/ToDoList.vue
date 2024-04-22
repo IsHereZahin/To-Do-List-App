@@ -21,7 +21,9 @@
           <td>{{ index + 1 }}</td>
           <td>{{ task.name }}</td>
           <td>
-            <button class="action-btn complete-btn">Complete</button>
+            <button @click="toggleTaskStatus(index)" class="action-btn" :class="{ 'complete-btn': task.completed, 'incomplete-btn': !task.completed }">
+              {{ task.completed ? 'Complete' : 'Pending' }}
+            </button>
           </td>
           <td>
             <div class="action-btn-group">
@@ -41,13 +43,17 @@ import '../assets/todolist.css'; // Import the external CSS file
 
 // Sample demo data
 const tasks = ref([
-  { name: 'Finish homework', completed: true },
+  { name: 'Finish homework', completed: false },
   { name: 'Go grocery shopping', completed: true },
-  { name: 'Call mom', completed: true },
+  { name: 'Call mom', completed: false },
   { name: 'Exercise', completed: true },
-  { name: 'Read a book', completed: true },
+  { name: 'Read a book', completed: false },
 ]);
 
+// Method to toggle task completion status
+const toggleTaskStatus = (index) => {
+  tasks.value[index].completed = !tasks.value[index].completed;
+};
 
 // Method to edit a task
 const editTask = (index) => {
