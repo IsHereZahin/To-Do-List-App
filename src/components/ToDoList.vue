@@ -8,7 +8,8 @@
     </div>
 
     <div class="table-container">
-      <table class="task-table">
+      <table v-if="tasks.length > 0" class="task-table">
+        <!-- Table header -->
         <thead>
           <tr>
             <th>SL</th>
@@ -17,6 +18,7 @@
             <th>Action</th>
           </tr>
         </thead>
+        <!-- Table body -->
         <tbody>
           <tr v-for="(task, index) in tasks" :key="index" :class="{ 'completed-task': task.completed, 'incomplete-task': !task.completed }">
             <td>{{ index + 1 }}</td>
@@ -35,6 +37,8 @@
           </tr>
         </tbody>
       </table>
+      <!-- Message when no tasks -->
+      <p v-else class="green">No tasks available</p>
     </div>
   </div>
 </template>
