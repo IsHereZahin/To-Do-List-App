@@ -75,7 +75,7 @@ const editTask = (index) => {
 
 // Method to delete a task
 const deleteTask = (index) => {
-  // Implement delete functionality here
+  tasks.value.splice(index, 1);
 };
 </script>
 
