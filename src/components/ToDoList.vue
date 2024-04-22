@@ -49,8 +49,12 @@
         </tbody>
       </table>
       <!-- Message when no tasks -->
-      <p v-else class="green">No tasks available</p>
+      <p v-else style="color: red;">No tasks available</p>
     </div>
+    <!-- Footer section -->
+    <footer class="footer">
+      <p>&copy; Zahin | GitHub: <a href="https://github.com/IsHereZahin" target="blank">IsHereZahin</a></p>
+    </footer>
   </div>
 </template>
 

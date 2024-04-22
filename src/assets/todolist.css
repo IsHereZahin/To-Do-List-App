@@ -206,6 +206,11 @@
     font-size: 16px;
   }
 
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+  }
+
 /* Media query for mobile devices */
 @media only screen and (max-width: 600px) {
   .container {
@@ -230,7 +235,7 @@
   .edit-btn,
   .delete-btn {
     font-size: 12px;
-    padding: 8px 12px;
+    padding: 6px 12px;
     width: auto;
   }
 
@@ -238,6 +243,10 @@
   .task-table td {
     padding: 10px;
     font-size: 12px;
+  }
+
+  .footer {
+    margin-top: 10px;
   }
 }
 
@@ -274,5 +283,9 @@
   .task-table td {
     padding: 8px;
     font-size: 12px;
+  }
+
+  .footer {
+    margin-top: 5px;
   }
 }
