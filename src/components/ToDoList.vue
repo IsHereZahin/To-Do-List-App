@@ -73,6 +73,9 @@ const newTask = ref('');
 // Original task data for editing
 const originalTasks = ref([]);
 
+// Index of the currently edited task (-1 means no task is being edited)
+const editingIndex = ref(-1);
+
 // Method to add a new task
 const addTask = () => {
   if (newTask.value.trim() !== '') {
@@ -88,21 +91,29 @@ const toggleTaskStatus = (index) => {
 
 // Method to edit a task
 const editTask = (index) => {
+  // Cancel editing of any other task
+  cancelEdit();
+
   // Save a copy of the original task data
   originalTasks.value[index] = { ...tasks.value[index] };
   tasks.value[index].editing = true;
+  editingIndex.value = index;
 };
 
 // Method to save edited task
 const saveEditedTask = (index) => {
   tasks.value[index].editing = false;
+  editingIndex.value = -1; // No task is being edited
 };
 
 // Method to cancel editing task
-const cancelEdit = (index) => {
-  // Restore the original task data
-  tasks.value[index] = { ...originalTasks.value[index] };
-  tasks.value[index].editing = false;
+const cancelEdit = () => {
+  if (editingIndex.value !== -1) {
+    // Restore the original task data
+    tasks.value[editingIndex.value] = { ...originalTasks.value[editingIndex.value] };
+    tasks.value[editingIndex.value].editing = false;
+    editingIndex.value = -1; // No task is being edited
+  }
 };
 
 // Method to delete a task
