@@ -167,6 +167,45 @@
     z-index: 1; /* Ensure the header stays above the tbody when scrolling */
   }  
 
+
+  /* Edit and Cancel Button Styles */
+  .save-btn,
+  .cancel-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 80px; /* Fixed width for both buttons */
+  }
+
+  .save-btn {
+    background-color: #41b883; /* Green color for save button */
+    margin-right: 5px;
+  }
+
+  .cancel-btn {
+    background-color: #e62323; /* Red color for cancel button */
+  }
+
+  .save-btn:hover {
+    background-color: #16A085; /* Darken color on hover */
+  }
+
+  .cancel-btn:hover {
+    background-color: #ad1b1b; /* Darken color on hover */
+  }
+
+  .task-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100%); /* Subtract padding from the total width */
+    font-size: 16px;
+  }
+
 /* Media query for mobile devices */
 @media only screen and (max-width: 600px) {
   .container {

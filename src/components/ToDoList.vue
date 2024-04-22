@@ -22,16 +22,27 @@
         <tbody>
           <tr v-for="(task, index) in tasks" :key="index" :class="{ 'completed-task': task.completed, 'incomplete-task': !task.completed }">
             <td>{{ index + 1 }}</td>
-            <td>{{ task.name }}</td>
+            <td>
+              <div v-if="!task.editing">
+                {{ task.name }}
+              </div>
+              <div v-else>
+                <input type="text" class="task-input" v-model="task.name" @keydown.enter="saveEditedTask(index)" @keydown.esc="cancelEdit(index)">
+              </div>
+            </td>
             <td>
               <button @click="toggleTaskStatus(index)" class="action-btn" :class="{ 'complete-btn': task.completed, 'incomplete-btn': !task.completed }">
                 {{ task.completed ? 'Complete' : 'Pending' }}
               </button>
             </td>
             <td>
-              <div class="action-btn-group">
+              <div v-if="!task.editing" class="action-btn-group">
                 <button @click="editTask(index)" class="edit-btn"><i class="fas fa-edit"></i></button>
                 <button @click="deleteTask(index)" class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+              </div>
+              <div v-else>
+                <button @click="saveEditedTask(index)" class="save-btn">Save</button>
+                <button @click="cancelEdit(index)" class="cancel-btn">Cancel</button>
               </div>
             </td>
           </tr>
@@ -74,7 +85,17 @@ const toggleTaskStatus = (index) => {
 
 // Method to edit a task
 const editTask = (index) => {
-  // Implement edit functionality here
+  tasks.value[index].editing = true;
+};
+
+// Method to save edited task
+const saveEditedTask = (index) => {
+  tasks.value[index].editing = false;
+};
+
+// Method to cancel editing task
+const cancelEdit = (index) => {
+  tasks.value[index].editing = false;
 };
 
 // Method to delete a task
