@@ -33,7 +33,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 70%;
+  width: calc(70% - 5px); /* Adjusted width to create a small gap */
   font-size: 16px;
 }
 
@@ -46,6 +46,7 @@
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  margin-left: 5px; /* Added margin between input field and button */
 }
 
 .submit-btn:hover {
@@ -228,14 +229,14 @@
 
   .action-btn {
     font-size: 12px;
-    padding: 6px 12px;
+    padding: 6px 10px; /* Adjusted padding */
     width: auto;
   }
 
   .edit-btn,
   .delete-btn {
     font-size: 12px;
-    padding: 6px 12px;
+    padding: 6px 10px; /* Adjusted padding */
     width: auto;
   }
 
@@ -263,19 +264,19 @@
 
   .submit-btn {
     font-size: 12px;
-    padding: 8px 16px;
+    padding: 8px 12px; /* Adjusted padding */
   }
 
   .action-btn {
     font-size: 10px;
-    padding: 6px 10px;
+    padding: 6px 8px; /* Adjusted padding */
     width: auto;
   }
 
   .edit-btn,
   .delete-btn {
     font-size: 10px;
-    padding: 6px 10px;
+    padding: 6px 8px; /* Adjusted padding */
     width: auto;
   }
 
