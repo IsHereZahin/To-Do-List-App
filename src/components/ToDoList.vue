@@ -53,7 +53,7 @@
     </div>
     <!-- Footer section -->
     <footer class="footer">
-      <p>&copy; Zahin | GitHub: <a href="https://github.com/IsHereZahin" target="blank">IsHereZahin</a></p>
+      <p style="color: #0D2852;">&copy; Zahin | GitHub: <a href="https://github.com/IsHereZahin" target="blank">IsHereZahin</a></p>
     </footer>
   </div>
 </template>
