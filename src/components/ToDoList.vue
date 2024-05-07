@@ -4,7 +4,8 @@
 
     <div class="input-container">
       <input type="text" placeholder="Enter task" class="task-input" v-model="newTask">
-      <button @click="addTask" class="submit-btn">Submit</button>
+      <button v-if="!newTask" class="submit-btn-disabled" disabled>NoTask!</button>
+      <button v-else @click="addTask" class="submit-btn">{{ newTask ? 'Submit' : 'No Task' }}</button>
     </div>
 
     <div class="table-container">
