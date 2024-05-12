@@ -107,6 +107,12 @@ const editTask = (index) => {
 
 // Method to save edited task
 const saveEditedTask = (index) => {
+  if (tasks.value[index].name.trim() === '') {
+    // Show an alert or handle the empty task name scenario
+    alert("Edited task cannot be empty!");
+    return;
+  }
+  
   tasks.value[index].editing = false;
   editingIndex.value = -1; // No task is being edited
 };
